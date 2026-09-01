@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;1,700;1,800&family=Manrope:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #07040b; color: #f4f2f8;
+           font-family: Manrope, "Helvetica Neue", Arial, sans-serif; }
+    a { color: #bd93fb; text-decoration: none; }
+    a:hover { color: #d9c2ff; }
+    .wrap { width: 1200px; margin: 0 auto; }
+    .h2 { font-family: Archivo, "Arial Black", sans-serif; font-size: 38px;
+          font-weight: 700; letter-spacing: -0.02em; margin: 0; line-height: 1.1; }
+    .lead { font-size: 16px; line-height: 1.6; color: #b0a5c0; margin: 0; }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+               text-transform: uppercase; color: #d9c2ff;
+               border: 1px solid rgba(139,47,232,0.4); background: rgba(37,10,62,0.55);
+               border-radius: 999px; padding: 6px 14px; width: fit-content; }
+    .card { border: 1px solid #2d1e3e; background: #120c1d; border-radius: 16px; }
+    .ctitle { font-family: Archivo, Arial, sans-serif; font-size: 18px;
+              font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+    .cbody { font-size: 14px; line-height: 1.65; color: #b0a5c0; margin: 0; }
+    .btn { border-radius: 999px; font-size: 15px; font-weight: 600;
+           padding: 14px 28px; display: inline-flex; align-items: center;
+           gap: 8px; border: 1px solid transparent; }
+
+    /* one orchestrated entrance, then only ambient motion */
+    @keyframes rise { from { opacity: 0; transform: translateY(20px) } to { opacity: 1; transform: none } }
+    @keyframes swell { from { opacity: 0; transform: scale(0.94) } to { opacity: 1; transform: none } }
+    @keyframes drift { to { stroke-dashoffset: -9 } }
+    @keyframes blip { 0%, 100% { transform: scale(1); opacity: 0.9 } 50% { transform: scale(1.45); opacity: 0.35 } }
+    @keyframes breathe { 0%, 100% { opacity: 0.55 } 50% { opacity: 1 } }
+    @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+    .rise { animation: rise 0.8s cubic-bezier(0.22, 0.7, 0.3, 1) both; }
+    .d1 { animation-delay: 0.08s } .d2 { animation-delay: 0.16s } .d3 { animation-delay: 0.24s }
+    .globe-in { animation: swell 1.4s cubic-bezier(0.22, 0.7, 0.3, 1) 0.2s both; }
+    .lat { animation: drift 3.4s linear infinite; }
+    .mer { animation: drift 6s linear infinite reverse; }
+    .halo { animation: breathe 5s ease-in-out infinite; }
+    .blip { transform-box: fill-box; transform-origin: center; animation: blip 2.6s ease-in-out infinite; }
+    .b2 { animation-delay: 0.5s } .b3 { animation-delay: 1s } .b4 { animation-delay: 1.5s } .b5 { animation-delay: 2s }
+    .track { display: flex; gap: 12px; width: max-content; animation: marquee 42s linear infinite; }
+    .btn, .card { transition: filter 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
+    .btn:hover { filter: brightness(1.1); }
+    .card:hover { border-color: rgba(139, 47, 232, 0.5); }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #07040b; overflow: hidden">
+
+  <div style="height: 72px; border-bottom: 1px solid rgba(45,30,62,0.7); display: flex; align-items: center">
+    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px">
+      <div style="display: flex; align-items: center; gap: 10px">
+        <div style="width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #a35ff5, #63189f); display: flex; align-items: center; justify-content: center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"></path>
+          </svg>
+        </div>
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">[YOUR BRAND]</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 500; color: #b0a5c0">
+        <span>Home</span>
+        <span>Pricing</span>
+        <span style="color: #f4f2f8">Setup guide</span>
+        <span>Reseller</span>
+        <span>Contact</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px">
+        <span style="font-size: 14px; font-weight: 600; color: #b0a5c0; padding: 9px 16px">Free trial</span>
+        <span class="btn" style="background: {{accent}}; color: #fff; font-size: 14px; padding: 10px 20px">Get started</span>
+      </div>
+    </div>
+  </div>
+  <div style="position: relative; overflow: hidden">
+    <div style="position: absolute; left: 0; right: 0; top: -220px; height: 620px; background: radial-gradient(55% 60% at 50% 50%, rgba(139,47,232,0.32), transparent 70%)"></div>
+    <div class="wrap" style="position: relative; padding: 88px 0 64px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
+      <div class="eyebrow rise">Installation</div>
+      <h1 class="rise d1" style="font-family: Archivo, 'Arial Black', sans-serif; font-size: 52px; font-style: italic; font-weight: 800; line-height: 1.06; letter-spacing: -0.03em; margin: 0; max-width: 800px; text-wrap: balance">Your MAG box, set up in four steps.</h1>
+      <p class="lead rise d2" style="font-size: 17px; max-width: 640px; text-wrap: pretty">You do not need to open the box or install anything. We register your line against the box's MAC address and send you one portal URL to type in. Most customers are watching within minutes.</p>
+    </div>
+  </div>
+  <div class="wrap" style="padding: 0 0 80px">
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+      <div class="card" style="padding: 26px; display: flex; flex-direction: column; gap: 12px">
+        <h3 class="ctitle" style="font-size: 16px">A stable connection</h3>
+        <p class="cbody">Around 15 Mbps is comfortable for HD and 25 Mbps for 4K. Wired beats wi-fi if the box is far from the router.</p>
+      </div>
+      <div class="card" style="padding: 26px; display: flex; flex-direction: column; gap: 12px">
+        <h3 class="ctitle" style="font-size: 16px">The box's MAC address</h3>
+        <p class="cbody">Printed on the sticker underneath, and shown on screen under Settings. It starts 00:1A:79 on a MAG.</p>
+      </div>
+      <div class="card" style="padding: 26px; display: flex; flex-direction: column; gap: 12px">
+        <h3 class="ctitle" style="font-size: 16px">About five minutes</h3>
+        <p class="cbody">Four short steps, one reboot. Nothing to download, no app to sideload, no settings to undo later.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 72px; padding-bottom: 88px">
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px">
+      <div style="display: flex; flex-direction: column; gap: 14px; align-self: center">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 30px; height: 30px; border-radius: 999px; background: {{accent}}; color: #fff; font-family: Archivo, Arial, sans-serif; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #bd93fb">Step 1</span>
+        </div>
+        <h3 class="h2" style="font-size: 26px">Find your MAC address</h3>
+        <p class="lead">On the box, open Settings, then System Settings, then About. The MAC is the line beginning 00:1A:79. It is also printed on the sticker on the underside of the box.</p>
+      </div>
+      <div style="border: 1px solid #2d1e3e; border-radius: 16px; background: #0d0916; overflow: hidden">
+      <div style="height: 40px; border-bottom: 1px solid #2d1e3e; display: flex; align-items: center; gap: 10px; padding: 0 16px">
+        <span style="width: 8px; height: 8px; border-radius: 999px; background: #3a2a52"></span>
+        <span style="width: 8px; height: 8px; border-radius: 999px; background: #3a2a52"></span>
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #b0a5c0; margin-left: 4px">MAG · System settings</span>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">Video<span>›</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">Audio<span>›</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">Network<span>›</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; background: rgba(139,47,232,0.18); border-left: 2px solid {{accent}}; font-size: 14px; color: #f4f2f8">About<span>›</span></div>
+      </div>
+      <div style="border-top: 1px solid #2d1e3e; padding: 14px 16px; font-size: 13px; color: #d9c2ff; font-family: ui-monospace, SFMono-Regular, Menlo, monospace">MAC: 00:1A:79:XX:XX:XX</div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px">
+      <div style="border: 1px solid #2d1e3e; border-radius: 16px; background: #0d0916; overflow: hidden">
+      <div style="height: 40px; border-bottom: 1px solid #2d1e3e; display: flex; align-items: center; gap: 10px; padding: 0 16px">
+        <span style="width: 8px; height: 8px; border-radius: 999px; background: #3a2a52"></span>
+        <span style="width: 8px; height: 8px; border-radius: 999px; background: #3a2a52"></span>
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #b0a5c0; margin-left: 4px">New message</span>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">To<span>[YOUR WHATSAPP NUMBER]</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">Plan<span>6 months</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">Connections<span>1</span></div>
+      </div>
+      <div style="border-top: 1px solid #2d1e3e; padding: 14px 16px; font-size: 13px; color: #d9c2ff; font-family: ui-monospace, SFMono-Regular, Menlo, monospace">MAC 00:1A:79:XX:XX:XX</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px; align-self: center">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 30px; height: 30px; border-radius: 999px; background: {{accent}}; color: #fff; font-family: Archivo, Arial, sans-serif; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #bd93fb">Step 2</span>
+        </div>
+        <h3 class="h2" style="font-size: 26px">Send it to us with your plan</h3>
+        <p class="lead">Message the MAC address along with the plan length you want and how many connections. Email, WhatsApp or Telegram — whichever you already use.</p>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px">
+      <div style="display: flex; flex-direction: column; gap: 14px; align-self: center">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 30px; height: 30px; border-radius: 999px; background: {{accent}}; color: #fff; font-family: Archivo, Arial, sans-serif; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #bd93fb">Step 3</span>
+        </div>
+        <h3 class="h2" style="font-size: 26px">We load your portal</h3>
+        <p class="lead">Your line is registered against that MAC and we email you a single portal URL. Nothing else needs to be installed on the box — the portal is the whole service.</p>
+      </div>
+      <div style="border: 1px solid #2d1e3e; border-radius: 16px; background: #0d0916; overflow: hidden">
+      <div style="height: 40px; border-bottom: 1px solid #2d1e3e; display: flex; align-items: center; gap: 10px; padding: 0 16px">
+        <span style="width: 8px; height: 8px; border-radius: 999px; background: #3a2a52"></span>
+        <span style="width: 8px; height: 8px; border-radius: 999px; background: #3a2a52"></span>
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #b0a5c0; margin-left: 4px">Inbox · [YOUR BRAND]</span>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; background: rgba(139,47,232,0.18); border-left: 2px solid {{accent}}; font-size: 14px; color: #f4f2f8">Subject<span>Your portal is ready</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">Line<span>Active · 6 months</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">Boxes<span>1 MAC registered</span></div>
+      </div>
+      <div style="border-top: 1px solid #2d1e3e; padding: 14px 16px; font-size: 13px; color: #d9c2ff; font-family: ui-monospace, SFMono-Regular, Menlo, monospace">http://portal.[YOURDOMAIN].tv/c/</div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px">
+      <div style="border: 1px solid #2d1e3e; border-radius: 16px; background: #0d0916; overflow: hidden">
+      <div style="height: 40px; border-bottom: 1px solid #2d1e3e; display: flex; align-items: center; gap: 10px; padding: 0 16px">
+        <span style="width: 8px; height: 8px; border-radius: 999px; background: #3a2a52"></span>
+        <span style="width: 8px; height: 8px; border-radius: 999px; background: #3a2a52"></span>
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #b0a5c0; margin-left: 4px">MAG · Portals</span>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">Portal 1 name<span>[YOUR BRAND]</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; background: rgba(139,47,232,0.18); border-left: 2px solid {{accent}}; font-size: 14px; color: #f4f2f8">Portal 1 URL<span>›</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">Portal 2 name<span>—</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; font-size: 14px; color: #8d82a4">Portal 2 URL<span>—</span></div>
+      </div>
+      <div style="border-top: 1px solid #2d1e3e; padding: 14px 16px; font-size: 13px; color: #d9c2ff; font-family: ui-monospace, SFMono-Regular, Menlo, monospace">http://portal.[YOURDOMAIN].tv/c/</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px; align-self: center">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 30px; height: 30px; border-radius: 999px; background: {{accent}}; color: #fff; font-family: Archivo, Arial, sans-serif; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center">4</span>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #bd93fb">Step 4</span>
+        </div>
+        <h3 class="h2" style="font-size: 26px">Enter it, reboot, watch</h3>
+        <p class="lead">On the box: Settings, then Servers, then Portals. Paste the URL into Portal 1 URL, save, and restart the box. The full grid loads on the next boot.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-top: 1px solid #2d1e3e; background: rgba(18,12,29,0.4)">
+    <div class="wrap" style="padding: 72px 0; display: flex; flex-direction: column; gap: 28px">
+      <h2 class="h2" style="font-size: 30px">If something is not right</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+        <div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+          <h3 class="ctitle" style="font-size: 16px">The portal will not load</h3>
+          <p class="cbody">Check the URL for a missing slash at the end, then reboot the box. If it still fails, send us the MAC again — the line may be registered to a different one.</p>
+        </div>
+        <div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+          <h3 class="ctitle" style="font-size: 16px">Picture freezes on one channel</h3>
+          <p class="cbody">Try the same channel on its backup number first. If every channel stutters, it is usually the connection — test the box on a cable before anything else.</p>
+        </div>
+        <div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+          <h3 class="ctitle" style="font-size: 16px">Catch-up is missing on a channel</h3>
+          <p class="cbody">Not every channel carries the full fourteen days. The EPG shows which ones do — the ones with a rewind arrow beside the programme name.</p>
+        </div>
+        <div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+          <h3 class="ctitle" style="font-size: 16px">You changed the box</h3>
+          <p class="cbody">Send us the new MAC address and we move the line across. There is no charge for a swap on an active subscription.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="position: relative; border-top: 1px solid #2d1e3e; overflow: hidden">
+    <div style="position: absolute; left: 0; right: 0; bottom: -240px; height: 640px; background: radial-gradient(50% 55% at 50% 100%, rgba(139,47,232,0.42), transparent 70%)"></div>
+    <div class="wrap" style="position: relative; padding: 88px 0; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center">
+      <h2 class="h2" style="font-size: 42px; font-style: italic; font-weight: 800; max-width: 720px; text-wrap: balance">Stuck on a step? We will do it with you.</h2>
+      <p class="lead" style="max-width: 540px">Message us with the MAC address and where you got to. Support answers around the clock, in plain language, without asking you to reset the box.</p>
+      <span class="btn" style="background: {{accent}}; color: #fff">Message support →</span>
+    </div>
+  </div>
+  <div style="border-top: 1px solid #2d1e3e; background: rgba(18,12,29,0.4)">
+    <div class="wrap" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; padding: 64px 0">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">[YOUR BRAND]</span>
+        <p class="cbody" style="max-width: 280px">IPTV supplied to MAG boxes anywhere on the globe that has internet.</p>
+        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px">
+          <span style="color: #b0a5c0">Email &nbsp;<span style="color: #d9c2ff">[YOUR EMAIL]</span></span>
+          <span style="color: #b0a5c0">WhatsApp &nbsp;<span style="color: #d9c2ff">[YOUR WHATSAPP NUMBER]</span></span>
+          <span style="color: #b0a5c0">Telegram &nbsp;<span style="color: #d9c2ff">[YOUR TELEGRAM]</span></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #d9c2ff">Service</span>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #b0a5c0">
+          <span>What you get</span><span>Pricing</span><span>Devices</span><span>Free trial</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #d9c2ff">Support</span>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #b0a5c0">
+          <span>Setup guide</span><span>FAQ</span><span>Contact us</span><span>Reseller programme</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #d9c2ff">Legal</span>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #b0a5c0">
+          <span>Terms of service</span><span>Refund policy</span><span>Privacy policy</span>
+        </div>
+      </div>
+    </div>
+    <div style="border-top: 1px solid #2d1e3e">
+      <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; padding: 22px 0; font-size: 12px; color: #b0a5c0">
+        <span>© 2026 [YOUR BRAND]. All rights reserved.</span>
+        <span>Subscriptions cover the service only. No hardware included.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#8b2fe8","options":["#8b2fe8","#2f6fe8","#e8622f","#12a37a"]},"$preview":{"width":1440,"height":3380}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? "#8b2fe8" }
+  }
+}
+</script>
+</body>
+</html>

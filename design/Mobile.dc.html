@@ -19,6 +19,21 @@
     .btn { border-radius: 999px; font-size: 15px; font-weight: 600; height: 48px;
            display: flex; align-items: center; justify-content: center; gap: 8px;
            border: 1px solid transparent; }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(20px) } to { opacity: 1; transform: none } }
+    @keyframes swell { from { opacity: 0; transform: scale(0.94) } to { opacity: 1; transform: none } }
+    @keyframes drift { to { stroke-dashoffset: -9 } }
+    @keyframes blip { 0%, 100% { transform: scale(1); opacity: 0.9 } 50% { transform: scale(1.45); opacity: 0.35 } }
+    .rise { animation: rise 0.8s cubic-bezier(0.22, 0.7, 0.3, 1) both; }
+    .d1 { animation-delay: 0.08s } .d2 { animation-delay: 0.16s } .d3 { animation-delay: 0.24s }
+    .globe-in { animation: swell 1.4s cubic-bezier(0.22, 0.7, 0.3, 1) 0.2s both; }
+    .lat { animation: drift 3.4s linear infinite; }
+    .mer { animation: drift 6s linear infinite reverse; }
+    .blip { transform-box: fill-box; transform-origin: center; animation: blip 2.6s ease-in-out infinite; }
+    .b2 { animation-delay: 0.6s } .b3 { animation-delay: 1.2s }
+    .btn, .card { transition: filter 0.2s ease, border-color 0.2s ease; }
+    .btn:hover { filter: brightness(1.1); }
+    .card:hover { border-color: rgba(139, 47, 232, 0.5); }
   </style>
 </helmet>
 
@@ -40,7 +55,7 @@
   <div style="position: relative; height: 840px; overflow: hidden">
     <div style="position: absolute; left: 0; right: 0; top: -120px; height: 620px; background: radial-gradient(70% 60% at 50% 0%, rgba(139,47,232,0.38), transparent 70%)"></div>
 
-    <div style="position: absolute; left: -75px; top: 448px; width: 540px; height: 540px">
+    <div class="globe-in" style="position: absolute; left: -75px; top: 448px; width: 540px; height: 540px">
       <svg viewBox="0 0 800 800" width="540" height="540">
         <defs>
           <radialGradient id="msphere" cx="42%" cy="34%" r="72%">
@@ -57,7 +72,7 @@
         </defs>
         <circle cx="400" cy="400" r="300" fill="url(#msphere)"></circle>
         <circle cx="400" cy="400" r="300" fill="none" stroke="{{accent}}" stroke-width="5" opacity="0.8" filter="url(#msoft)"></circle>
-        <g fill="none" stroke="#c9a9fd" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.6">
+        <g class="lat" fill="none" stroke="#c9a9fd" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.6">
           <ellipse cx="400" cy="642.6" rx="150.0" ry="53.8"></ellipse>
           <ellipse cx="400" cy="598.0" rx="212.1" ry="76.0"></ellipse>
           <ellipse cx="400" cy="540.0" rx="259.8" ry="93.1"></ellipse>
@@ -68,33 +83,33 @@
           <ellipse cx="400" cy="202.0" rx="212.1" ry="76.0"></ellipse>
           <ellipse cx="400" cy="157.4" rx="150.0" ry="53.8"></ellipse>
         </g>
-        <g fill="none" stroke="#c9a9fd" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.42" transform="rotate(21 400 400)">
+        <g class="mer" fill="none" stroke="#c9a9fd" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.42" transform="rotate(21 400 400)">
           <ellipse cx="400" cy="400" rx="150.0" ry="300"></ellipse>
           <ellipse cx="400" cy="400" rx="259.8" ry="300"></ellipse>
           <ellipse cx="400" cy="400" rx="300.0" ry="300"></ellipse>
         </g>
         <circle cx="437" cy="243" r="14" fill="#fb6415" opacity="0.5" filter="url(#mdot)"></circle>
-        <circle cx="437" cy="243" r="6" fill="#fb6415"></circle>
+        <circle class="blip" cx="437" cy="243" r="6" fill="#fb6415"></circle>
         <circle cx="296" cy="300" r="12" fill="#fb6415" opacity="0.45" filter="url(#mdot)"></circle>
-        <circle cx="296" cy="300" r="5" fill="#fb6415"></circle>
+        <circle class="blip b2" cx="296" cy="300" r="5" fill="#fb6415"></circle>
         <circle cx="528" cy="336" r="11" fill="#fb6415" opacity="0.4" filter="url(#mdot)"></circle>
-        <circle cx="528" cy="336" r="4.5" fill="#fb6415"></circle>
+        <circle class="blip b3" cx="528" cy="336" r="4.5" fill="#fb6415"></circle>
       </svg>
       <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, #07040b 1%, rgba(7,4,11,0) 24%)"></div>
     </div>
 
     <div style="position: relative; padding: 56px 24px 0; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
-      <div style="display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #d9c2ff; border: 1px solid rgba(139,47,232,0.4); background: rgba(37,10,62,0.55); border-radius: 999px; padding: 7px 16px">
+      <div class="rise" style="display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #d9c2ff; border: 1px solid rgba(139,47,232,0.4); background: rgba(37,10,62,0.55); border-radius: 999px; padding: 7px 16px">
         <span style="width: 6px; height: 6px; border-radius: 999px; background: #fb6415"></span>
         MAG box ready · worldwide
       </div>
-      <h1 style="font-family: Archivo, 'Arial Black', sans-serif; font-size: 36px; font-style: italic; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin: 0; text-wrap: balance">
+      <h1 class="rise d1" style="font-family: Archivo, 'Arial Black', sans-serif; font-size: 36px; font-style: italic; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin: 0; text-wrap: balance">
         IPTV for your MAG box, <span style="color: #cbb0fb">anywhere the internet reaches</span>
       </h1>
-      <p class="cbody" style="font-size: 15px; text-wrap: pretty">
+      <p class="cbody rise d2" style="font-size: 15px; text-wrap: pretty">
         20,000 live TV channels. Over 30,000 films and TV series on demand. All the sport, including the 3pm kickoffs and PPV. And two full weeks of catch-up.
       </p>
-      <div style="display: flex; flex-direction: column; gap: 12px; width: 100%; margin-top: 4px">
+      <div class="rise d3" style="display: flex; flex-direction: column; gap: 12px; width: 100%; margin-top: 4px">
         <span class="btn" style="background: {{accent}}; color: #fff">Start your free trial →</span>
         <span class="btn" style="background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8">▷ See the channel line-up</span>
       </div>

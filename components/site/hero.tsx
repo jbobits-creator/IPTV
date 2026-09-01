@@ -46,32 +46,32 @@ export function Hero() {
       <div className="aura pointer-events-none absolute inset-x-0 -top-52 h-[900px]" />
 
       {/* the globe rises behind the call to action and is dragged to spin */}
-      <div className="absolute left-1/2 top-[420px] size-[520px] -translate-x-1/2 [mask-image:linear-gradient(to_bottom,transparent,#000_22%)] md:top-[470px] md:size-[760px]">
+      <div className="absolute left-1/2 top-[420px] size-[520px] -translate-x-1/2 animate-swell [mask-image:linear-gradient(to_bottom,transparent,#000_22%)] md:top-[470px] md:size-[760px]">
         <Globe className="max-w-none" config={GLOBE} />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_46%,transparent_54%,rgba(7,5,12,0.7)_76%,#07050c_94%)]" />
       </div>
 
       <div className="container relative pb-20 pt-20 md:pt-28">
         <div className="pointer-events-none mx-auto flex max-w-3xl flex-col items-center gap-7 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-signal-500/40 bg-signal-900/50 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-signal-200 backdrop-blur md:text-xs md:tracking-[0.18em]">
+          <span className="inline-flex animate-rise items-center gap-2 rounded-full border border-signal-500/40 bg-signal-900/50 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-signal-200 backdrop-blur md:text-xs md:tracking-[0.18em]">
             <span className="size-1.5 rounded-full bg-kick" />
             MAG box ready · delivered worldwide
           </span>
 
-          <h1 className="text-balance font-display text-4xl font-extrabold italic leading-[1.04] tracking-tight [text-shadow:0_2px_40px_rgba(7,5,12,0.85)] md:text-6xl">
+          <h1 className="text-balance animate-rise font-display text-4xl [animation-delay:80ms] font-extrabold italic leading-[1.04] tracking-tight [text-shadow:0_2px_40px_rgba(7,5,12,0.85)] md:text-6xl">
             IPTV for your MAG box,{" "}
             <span className="bg-gradient-to-b from-white to-signal-300 bg-clip-text text-transparent">
               anywhere the internet reaches
             </span>
           </h1>
 
-          <p className="text-pretty max-w-2xl text-base leading-relaxed text-muted-foreground [text-shadow:0_2px_24px_rgba(7,5,12,0.9)] md:text-lg">
+          <p className="text-pretty max-w-2xl animate-rise text-base [animation-delay:160ms] leading-relaxed text-muted-foreground [text-shadow:0_2px_24px_rgba(7,5,12,0.9)] md:text-lg">
             20,000 live TV channels. Over 30,000 films and TV series on demand.
             All the sport, including the 3pm kickoffs and PPV. And two full
             weeks of catch-up on every enabled channel.
           </p>
 
-          <div className="pointer-events-auto flex flex-col gap-3 sm:flex-row">
+          <div className="pointer-events-auto flex animate-rise flex-col gap-3 [animation-delay:240ms] sm:flex-row">
             <Button size="lg" className="group">
               Start your free trial
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />

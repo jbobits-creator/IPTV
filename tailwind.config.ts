@@ -90,11 +90,21 @@ const config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        rise: {
+          from: { opacity: "0", transform: "translateY(20px)" },
+          to: { opacity: "1", transform: "none" },
+        },
+        swell: {
+          from: { opacity: "0", transform: "scale(0.94)" },
+          to: { opacity: "1", transform: "none" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         marquee: "marquee 38s linear infinite",
+        rise: "rise 0.8s cubic-bezier(0.22, 0.7, 0.3, 1) both",
+        swell: "swell 1.4s cubic-bezier(0.22, 0.7, 0.3, 1) 0.2s both",
       },
     },
   },

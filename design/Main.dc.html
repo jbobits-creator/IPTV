@@ -28,6 +28,26 @@
     .btn { border-radius: 999px; font-size: 15px; font-weight: 600;
            padding: 14px 28px; display: inline-flex; align-items: center;
            gap: 8px; border: 1px solid transparent; }
+
+    /* one orchestrated entrance, then only ambient motion */
+    @keyframes rise { from { opacity: 0; transform: translateY(20px) } to { opacity: 1; transform: none } }
+    @keyframes swell { from { opacity: 0; transform: scale(0.94) } to { opacity: 1; transform: none } }
+    @keyframes drift { to { stroke-dashoffset: -9 } }
+    @keyframes blip { 0%, 100% { transform: scale(1); opacity: 0.9 } 50% { transform: scale(1.45); opacity: 0.35 } }
+    @keyframes breathe { 0%, 100% { opacity: 0.55 } 50% { opacity: 1 } }
+    @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+    .rise { animation: rise 0.8s cubic-bezier(0.22, 0.7, 0.3, 1) both; }
+    .d1 { animation-delay: 0.08s } .d2 { animation-delay: 0.16s } .d3 { animation-delay: 0.24s }
+    .globe-in { animation: swell 1.4s cubic-bezier(0.22, 0.7, 0.3, 1) 0.2s both; }
+    .lat { animation: drift 3.4s linear infinite; }
+    .mer { animation: drift 6s linear infinite reverse; }
+    .halo { animation: breathe 5s ease-in-out infinite; }
+    .blip { transform-box: fill-box; transform-origin: center; animation: blip 2.6s ease-in-out infinite; }
+    .b2 { animation-delay: 0.5s } .b3 { animation-delay: 1s } .b4 { animation-delay: 1.5s } .b5 { animation-delay: 2s }
+    .track { display: flex; gap: 12px; width: max-content; animation: marquee 42s linear infinite; }
+    .btn, .card { transition: filter 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
+    .btn:hover { filter: brightness(1.1); }
+    .card:hover { border-color: rgba(139, 47, 232, 0.5); }
   </style>
 </helmet>
 
@@ -46,11 +66,11 @@
         <span style="font-family: Archivo, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">[YOUR BRAND]</span>
       </div>
       <div style="display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 500; color: #b0a5c0">
-        <span>What you get</span>
-        <span>How it works</span>
-        <span>Devices</span>
-        <span>Plans</span>
-        <span>FAQ</span>
+        <span style="color: #f4f2f8">Home</span>
+        <span>Pricing</span>
+        <span>Setup guide</span>
+        <span>Reseller</span>
+        <span>Contact</span>
       </div>
       <div style="display: flex; align-items: center; gap: 10px">
         <span style="font-size: 14px; font-weight: 600; color: #b0a5c0; padding: 9px 16px">Free trial</span>
@@ -64,7 +84,7 @@
     <div style="position: absolute; left: 0; right: 0; top: -180px; height: 900px; background: radial-gradient(60% 60% at 50% 0%, rgba(139,47,232,0.35), transparent 70%), radial-gradient(40% 40% at 80% 20%, rgba(163,95,245,0.18), transparent 70%)"></div>
 
     <!-- dotted globe -->
-    <div style="position: absolute; left: 340px; top: 470px; width: 760px; height: 760px">
+    <div class="globe-in" style="position: absolute; left: 340px; top: 470px; width: 760px; height: 760px">
       <svg viewBox="0 0 800 800" width="760" height="760">
         <defs>
           <radialGradient id="sphere" cx="42%" cy="34%" r="72%">
@@ -84,10 +104,10 @@
             <feGaussianBlur stdDeviation="5"></feGaussianBlur>
           </filter>
         </defs>
-        <circle cx="400" cy="400" r="330" fill="url(#halo)"></circle>
+        <circle class="halo" cx="400" cy="400" r="330" fill="url(#halo)"></circle>
         <circle cx="400" cy="400" r="300" fill="url(#sphere)"></circle>
         <circle cx="400" cy="400" r="300" fill="none" stroke="{{accent}}" stroke-width="4" opacity="0.75" filter="url(#soft)"></circle>
-        <g fill="none" stroke="#c9a9fd" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.6">
+        <g class="lat" fill="none" stroke="#c9a9fd" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.6">
           <ellipse cx="400" cy="670.5" rx="77.6" ry="27.8"></ellipse>
           <ellipse cx="400" cy="642.6" rx="150.0" ry="53.8"></ellipse>
           <ellipse cx="400" cy="598.0" rx="212.1" ry="76.0"></ellipse>
@@ -100,7 +120,7 @@
           <ellipse cx="400" cy="157.4" rx="150.0" ry="53.8"></ellipse>
           <ellipse cx="400" cy="129.5" rx="77.6" ry="27.8"></ellipse>
         </g>
-        <g fill="none" stroke="#c9a9fd" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.42" transform="rotate(21 400 400)">
+        <g class="mer" fill="none" stroke="#c9a9fd" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.42" transform="rotate(21 400 400)">
           <ellipse cx="400" cy="400" rx="77.6" ry="300"></ellipse>
           <ellipse cx="400" cy="400" rx="150.0" ry="300"></ellipse>
           <ellipse cx="400" cy="400" rx="212.1" ry="300"></ellipse>
@@ -110,15 +130,15 @@
         </g>
         <g>
           <circle cx="437" cy="243" r="14" fill="#fb6415" opacity="0.5" filter="url(#dot)"></circle>
-          <circle cx="437" cy="243" r="5" fill="#fb6415"></circle>
+          <circle class="blip" cx="437" cy="243" r="5" fill="#fb6415"></circle>
           <circle cx="296" cy="300" r="12" fill="#fb6415" opacity="0.45" filter="url(#dot)"></circle>
-          <circle cx="296" cy="300" r="4.5" fill="#fb6415"></circle>
+          <circle class="blip b2" cx="296" cy="300" r="4.5" fill="#fb6415"></circle>
           <circle cx="528" cy="336" r="11" fill="#fb6415" opacity="0.4" filter="url(#dot)"></circle>
-          <circle cx="528" cy="336" r="4" fill="#fb6415"></circle>
+          <circle class="blip b3" cx="528" cy="336" r="4" fill="#fb6415"></circle>
           <circle cx="612" cy="497" r="11" fill="#fb6415" opacity="0.4" filter="url(#dot)"></circle>
-          <circle cx="612" cy="497" r="4" fill="#fb6415"></circle>
+          <circle class="blip b4" cx="612" cy="497" r="4" fill="#fb6415"></circle>
           <circle cx="336" cy="486" r="11" fill="#fb6415" opacity="0.4" filter="url(#dot)"></circle>
-          <circle cx="336" cy="486" r="4" fill="#fb6415"></circle>
+          <circle class="blip b5" cx="336" cy="486" r="4" fill="#fb6415"></circle>
         </g>
       </svg>
       <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, #07040b 2%, rgba(7,4,11,0) 26%)"></div>
@@ -126,17 +146,17 @@
 
     <!-- hero copy -->
     <div class="wrap" style="position: relative; padding-top: 118px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
-      <div class="eyebrow" style="display: flex; align-items: center; gap: 9px; letter-spacing: 0.18em">
+      <div class="eyebrow rise" style="display: flex; align-items: center; gap: 9px; letter-spacing: 0.18em">
         <span style="width: 6px; height: 6px; border-radius: 999px; background: #fb6415"></span>
         MAG box ready · delivered worldwide
       </div>
-      <h1 style="font-family: Archivo, 'Arial Black', sans-serif; font-size: 62px; font-style: italic; font-weight: 800; line-height: 1.04; letter-spacing: -0.03em; margin: 0; max-width: 860px; text-wrap: balance">
+      <h1 class="rise d1" style="font-family: Archivo, 'Arial Black', sans-serif; font-size: 62px; font-style: italic; font-weight: 800; line-height: 1.04; letter-spacing: -0.03em; margin: 0; max-width: 860px; text-wrap: balance">
         IPTV for your MAG box, <span style="color: #cbb0fb">anywhere the internet reaches</span>
       </h1>
-      <p class="lead" style="font-size: 18px; max-width: 680px; text-wrap: pretty">
+      <p class="lead rise d2" style="font-size: 18px; max-width: 680px; text-wrap: pretty">
         20,000 live TV channels. Over 30,000 films and TV series on demand. All the sport, including the 3pm kickoffs and PPV. And two full weeks of catch-up on every enabled channel.
       </p>
-      <div style="display: flex; gap: 12px; margin-top: 4px">
+      <div class="rise d3" style="display: flex; gap: 12px; margin-top: 4px">
         <span class="btn" style="background: {{accent}}; color: #fff">Start your free trial →</span>
         <span class="btn" style="background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8">▷ See the channel line-up</span>
       </div>
@@ -264,22 +284,39 @@
       <h2 class="h2" style="font-size: 30px">Built for MAG — works on the rest too</h2>
       <p class="lead" style="font-size: 14px; max-width: 520px">Set up on your MAG box by us, and usable on everything else you already own with the same line.</p>
     </div>
-    <div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px">
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 250</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 254</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 256</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 322</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 324</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 349</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 420 4K</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 524 4K</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Formuler Z</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Android TV</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Amazon Firestick</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Smart TV apps</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Enigma2</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">iOS &amp; Android</span>
-      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">VLC / Kodi</span>
+    <div style="margin-top: 36px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)">
+      <div class="track">
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 250</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 254</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 256</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 322</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 324</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 349</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 420 4K</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 524 4K</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Formuler Z</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Android TV</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Amazon Firestick</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Smart TV apps</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Enigma2</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">iOS &amp; Android</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">VLC / Kodi</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 250</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 254</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 256</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 322</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 324</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 349</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 420 4K</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 524 4K</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Formuler Z</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Android TV</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Amazon Firestick</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Smart TV apps</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Enigma2</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">iOS &amp; Android</span>
+        <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">VLC / Kodi</span>
+      </div>
     </div>
   </div>
 
@@ -311,7 +348,7 @@
             <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; HD, FHD &amp; 4K where broadcast</span>
             <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; MAG portal set up for you</span>
           </div>
-          <span class="btn" style="justify-content: center; background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8; font-size: 14px">Start now</span>
+          <span class="btn" style="justify-content: center; margin-top: auto; background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8; font-size: 14px">Start now</span>
         </div>
 
         <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 24px">
@@ -331,7 +368,7 @@
             <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; HD, FHD &amp; 4K where broadcast</span>
             <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; MAG portal set up for you</span>
           </div>
-          <span class="btn" style="justify-content: center; background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8; font-size: 14px">Start now</span>
+          <span class="btn" style="justify-content: center; margin-top: auto; background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8; font-size: 14px">Start now</span>
         </div>
 
         <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 24px; position: relative; border-color: rgba(139,47,232,0.6); background: linear-gradient(to bottom, rgba(37,10,62,0.6), #120c1d); box-shadow: 0 30px 80px -40px rgba(139,47,232,0.9)">
@@ -352,7 +389,7 @@
             <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; HD, FHD &amp; 4K where broadcast</span>
             <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; MAG portal set up for you</span>
           </div>
-          <span class="btn" style="justify-content: center; background: {{accent}}; color: #fff; font-size: 14px">Start now</span>
+          <span class="btn" style="justify-content: center; margin-top: auto; background: {{accent}}; color: #fff; font-size: 14px">Start now</span>
         </div>
 
         <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 24px">
@@ -372,7 +409,7 @@
             <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; HD, FHD &amp; 4K where broadcast</span>
             <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; MAG portal set up for you</span>
           </div>
-          <span class="btn" style="justify-content: center; background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8; font-size: 14px">Start now</span>
+          <span class="btn" style="justify-content: center; margin-top: auto; background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8; font-size: 14px">Start now</span>
         </div>
       </div>
 

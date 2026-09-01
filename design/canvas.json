@@ -1,12 +1,21 @@
 {
+  "pages": [
+    { "id": "page-1", "name": "Website" },
+    { "id": "page-2", "name": "Phone & kit" }
+  ],
   "artboards": [
-    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 5800, "title": "Offer page — desktop", "print": "flow" },
-    { "file": "Mobile.dc.html", "x": 1600, "y": 0, "w": 390, "h": 2300, "title": "Offer page — phone", "print": "flow" },
-    { "file": "Kit.dc.html", "x": 2150, "y": 0, "w": 760, "h": 1600, "title": "Design kit", "print": "flow" }
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 5800, "title": "Home", "print": "flow", "page": "page-1" },
+    { "file": "Pricing.dc.html", "x": 1560, "y": 0, "w": 1440, "h": 2500, "title": "Pricing", "print": "flow", "page": "page-1" },
+    { "file": "Setup.dc.html", "x": 3120, "y": 0, "w": 1440, "h": 3380, "title": "Setup guide", "print": "flow", "page": "page-1" },
+    { "file": "Reseller.dc.html", "x": 4680, "y": 0, "w": 1440, "h": 2720, "title": "Reseller", "print": "flow", "page": "page-1" },
+    { "file": "Contact.dc.html", "x": 6240, "y": 0, "w": 1440, "h": 1520, "title": "Contact", "print": "flow", "page": "page-1" },
+    { "file": "Mobile.dc.html", "x": 0, "y": 0, "w": 390, "h": 2300, "title": "Home — phone", "print": "flow", "page": "page-2" },
+    { "file": "Kit.dc.html", "x": 560, "y": 0, "w": 760, "h": 1600, "title": "Design kit", "print": "flow", "page": "page-2" }
   ],
   "annotations": [
-    { "id": "placeholders", "x": 2150, "y": 1700, "w": 400, "text": "Everything in [SQUARE BRACKETS] is a placeholder waiting on a real value: brand name, the four prices, email, WhatsApp, Telegram.\n\nThe same values live in lib/offer.ts in the repo, so the page and this canvas can be updated together." },
-    { "id": "globe-note", "x": 2150, "y": 1960, "w": 400, "text": "The globe here is drawn as SVG. On the live page it is the cobe canvas from components/ui/globe.tsx — it spins, and you can drag it." }
+    { "id": "placeholders", "x": 6240, "y": 1660, "w": 420, "page": "page-1", "text": "Everything in [SQUARE BRACKETS] still needs a real value: brand name, the prices, email, WhatsApp, Telegram, support hours, trial length, refund terms, the portal domain and the reseller branding terms.\n\nThe same strings live in lib/offer.ts in the repo, so page and canvas can be filled in together." },
+    { "id": "motion-note", "x": 6240, "y": 1980, "w": 420, "page": "page-1", "text": "Motion: one staggered entrance per page (badge, headline, copy, buttons), then only ambient movement — the dots travel around the globe, the delivery markers pulse, the device strip runs. Buttons and cards lift on hover." },
+    { "id": "globe-note", "x": 6240, "y": 2260, "w": 420, "page": "page-1", "text": "The globe here is drawn as SVG so it animates on the canvas. On the live site it is the cobe canvas from components/ui/globe.tsx — it spins, and you can drag it." }
   ],
-  "launch": { "view": "canvas" }
+  "launch": { "view": "canvas", "page": "page-1" }
 }
