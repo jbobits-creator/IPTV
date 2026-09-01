@@ -441,8 +441,15 @@ def seite_bauen(eintraege):
 
 
 def oeffnen(pfad):
-    """Startet die Seite mit »open«, unter Linux notfalls mit »xdg-open«."""
-    for werkzeug in ("open", "xdg-open"):
+    """Startet die Seite: unter Windows startfile, sonst open, wslview, xdg-open."""
+    starten = getattr(os, "startfile", None)
+    if starten is not None:                      # nur unter Windows vorhanden
+        try:
+            starten(str(pfad))
+            return True
+        except OSError:
+            pass
+    for werkzeug in ("open", "wslview", "xdg-open"):
         if shutil.which(werkzeug):
             try:
                 subprocess.run([werkzeug, str(pfad)], check=False)

@@ -11,7 +11,9 @@ Bilder, Videos und Sprache über kie.ai. Zwei Werkzeuge:
 - `scripts/galerie.py` — baut `~/Medien/galerie.html` aus allen `meta.json`
 
 Der Schlüssel steht in `KIE_API_KEY`. Ist er nicht gesetzt, sag das und bitte um
-`export KIE_API_KEY="…"` — such ihn nicht in Dateien, leg ihn nirgends ab.
+`export KIE_API_KEY="…"` — such ihn nicht in Dateien, leg ihn nirgends ab. Unter
+Windows heißt der Aufruf `python` oder `py` statt `python3`, und der Schlüssel wird
+mit `setx` gesetzt.
 
 Vor jedem Auftrag `references/modelle.md` lesen. Dort stehen die Fallen, die sonst
 Geld kosten: verfallende URLs, englische Video-Prompts, `duration` mal Text mal
