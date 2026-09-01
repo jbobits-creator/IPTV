@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 45% 3%;
+    --foreground: 262 30% 96%;
+
+    --card: 262 40% 8%;
+    --card-foreground: 262 30% 96%;
+
+    --popover: 262 40% 8%;
+    --popover-foreground: 262 30% 96%;
+
+    --primary: 273 82% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 264 32% 14%;
+    --secondary-foreground: 262 30% 96%;
+
+    --muted: 264 26% 16%;
+    --muted-foreground: 264 18% 70%;
+
+    --accent: 273 60% 22%;
+    --accent-foreground: 262 30% 96%;
+
+    --destructive: 0 72% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 268 34% 18%;
+    --input: 268 34% 18%;
+    --ring: 273 82% 60%;
+
+    --radius: 0.875rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01" on, "cv01" on;
+  }
+  ::selection {
+    background: #8b2fe8;
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  /* soft violet aura used behind the hero and the plans band */
+  .aura {
+    background:
+      radial-gradient(60% 60% at 50% 0%, rgba(139, 47, 232, 0.35), transparent 70%),
+      radial-gradient(40% 40% at 80% 20%, rgba(163, 95, 245, 0.18), transparent 70%);
+  }
+  .hairline {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(189, 147, 251, 0.35),
+      transparent
+    );
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
