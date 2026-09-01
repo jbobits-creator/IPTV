@@ -76,7 +76,12 @@ instead, with markers on the cities the service is delivered to:
 <Globe className="top-0 max-w-[560px]" config={GLOBE} />
 ```
 
-Two things to know:
+Three things to know:
+
+- **`mapBrightness` alone is not enough on a dark page.** It only lights the
+  sun-facing side, so at most phi values the globe renders as a black disc with
+  a glow ring. `mapBaseBrightness` is what makes the continents readable while
+  the globe spins — the hero sets it to `0.13`.
 
 - The component is `"use client"`, and a `config` contains an `onRender`
   function, so any component passing `config` must be a client component too —
