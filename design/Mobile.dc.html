@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;1,700;1,800&family=Manrope:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #07040b; color: #f4f2f8;
+           font-family: Manrope, "Helvetica Neue", Arial, sans-serif; }
+    a { color: #bd93fb; text-decoration: none; }
+    a:hover { color: #d9c2ff; }
+    .card { border: 1px solid #2d1e3e; background: #120c1d; border-radius: 16px; }
+    .ctitle { font-family: Archivo, Arial, sans-serif; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+    .cbody { font-size: 14px; line-height: 1.6; color: #b0a5c0; margin: 0; }
+    .btn { border-radius: 999px; font-size: 15px; font-weight: 600; height: 48px;
+           display: flex; align-items: center; justify-content: center; gap: 8px;
+           border: 1px solid transparent; }
+  </style>
+</helmet>
+
+<div style="width: 390px; background: #07040b; overflow: hidden">
+
+  <div style="height: 64px; border-bottom: 1px solid rgba(45,30,62,0.7); display: flex; align-items: center; justify-content: space-between; padding: 0 20px">
+    <div style="display: flex; align-items: center; gap: 9px">
+      <div style="width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, #a35ff5, #63189f); display: flex; align-items: center; justify-content: center">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"></path>
+        </svg>
+      </div>
+      <span style="font-family: Archivo, Arial, sans-serif; font-size: 16px; font-weight: 700; letter-spacing: -0.02em">[YOUR BRAND]</span>
+    </div>
+    <span class="btn" style="background: {{accent}}; color: #fff; font-size: 13px; height: 36px; padding: 0 16px">Get started</span>
+  </div>
+
+  <div style="position: relative; height: 840px; overflow: hidden">
+    <div style="position: absolute; left: 0; right: 0; top: -120px; height: 620px; background: radial-gradient(70% 60% at 50% 0%, rgba(139,47,232,0.38), transparent 70%)"></div>
+
+    <div style="position: absolute; left: -75px; top: 448px; width: 540px; height: 540px">
+      <svg viewBox="0 0 800 800" width="540" height="540">
+        <defs>
+          <radialGradient id="msphere" cx="42%" cy="34%" r="72%">
+            <stop offset="0%" stop-color="#2a1a44"></stop>
+            <stop offset="70%" stop-color="#140b22"></stop>
+            <stop offset="100%" stop-color="#0a0613"></stop>
+          </radialGradient>
+          <filter id="msoft" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="7"></feGaussianBlur>
+          </filter>
+          <filter id="mdot" x="-140%" y="-140%" width="380%" height="380%">
+            <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+          </filter>
+        </defs>
+        <circle cx="400" cy="400" r="300" fill="url(#msphere)"></circle>
+        <circle cx="400" cy="400" r="300" fill="none" stroke="{{accent}}" stroke-width="5" opacity="0.8" filter="url(#msoft)"></circle>
+        <g fill="none" stroke="#c9a9fd" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.6">
+          <ellipse cx="400" cy="642.6" rx="150.0" ry="53.8"></ellipse>
+          <ellipse cx="400" cy="598.0" rx="212.1" ry="76.0"></ellipse>
+          <ellipse cx="400" cy="540.0" rx="259.8" ry="93.1"></ellipse>
+          <ellipse cx="400" cy="472.5" rx="289.8" ry="103.8"></ellipse>
+          <ellipse cx="400" cy="400.0" rx="300.0" ry="107.5"></ellipse>
+          <ellipse cx="400" cy="327.5" rx="289.8" ry="103.8"></ellipse>
+          <ellipse cx="400" cy="260.0" rx="259.8" ry="93.1"></ellipse>
+          <ellipse cx="400" cy="202.0" rx="212.1" ry="76.0"></ellipse>
+          <ellipse cx="400" cy="157.4" rx="150.0" ry="53.8"></ellipse>
+        </g>
+        <g fill="none" stroke="#c9a9fd" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.42" transform="rotate(21 400 400)">
+          <ellipse cx="400" cy="400" rx="150.0" ry="300"></ellipse>
+          <ellipse cx="400" cy="400" rx="259.8" ry="300"></ellipse>
+          <ellipse cx="400" cy="400" rx="300.0" ry="300"></ellipse>
+        </g>
+        <circle cx="437" cy="243" r="14" fill="#fb6415" opacity="0.5" filter="url(#mdot)"></circle>
+        <circle cx="437" cy="243" r="6" fill="#fb6415"></circle>
+        <circle cx="296" cy="300" r="12" fill="#fb6415" opacity="0.45" filter="url(#mdot)"></circle>
+        <circle cx="296" cy="300" r="5" fill="#fb6415"></circle>
+        <circle cx="528" cy="336" r="11" fill="#fb6415" opacity="0.4" filter="url(#mdot)"></circle>
+        <circle cx="528" cy="336" r="4.5" fill="#fb6415"></circle>
+      </svg>
+      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, #07040b 1%, rgba(7,4,11,0) 24%)"></div>
+    </div>
+
+    <div style="position: relative; padding: 56px 24px 0; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #d9c2ff; border: 1px solid rgba(139,47,232,0.4); background: rgba(37,10,62,0.55); border-radius: 999px; padding: 7px 16px">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #fb6415"></span>
+        MAG box ready · worldwide
+      </div>
+      <h1 style="font-family: Archivo, 'Arial Black', sans-serif; font-size: 36px; font-style: italic; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin: 0; text-wrap: balance">
+        IPTV for your MAG box, <span style="color: #cbb0fb">anywhere the internet reaches</span>
+      </h1>
+      <p class="cbody" style="font-size: 15px; text-wrap: pretty">
+        20,000 live TV channels. Over 30,000 films and TV series on demand. All the sport, including the 3pm kickoffs and PPV. And two full weeks of catch-up.
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 12px; width: 100%; margin-top: 4px">
+        <span class="btn" style="background: {{accent}}; color: #fff">Start your free trial →</span>
+        <span class="btn" style="background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8">▷ See the channel line-up</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 0 20px">
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: #2d1e3e; border: 1px solid #2d1e3e; border-radius: 18px; overflow: hidden">
+      <div style="background: rgba(18,12,29,0.9); padding: 22px 20px; display: flex; flex-direction: column; gap: 4px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: #fff">20,000</span>
+        <span style="font-size: 13px; font-weight: 600; color: #d9c2ff">Live TV channels</span>
+      </div>
+      <div style="background: rgba(18,12,29,0.9); padding: 22px 20px; display: flex; flex-direction: column; gap: 4px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: #fff">30,000+</span>
+        <span style="font-size: 13px; font-weight: 600; color: #d9c2ff">VOD &amp; TV series</span>
+      </div>
+      <div style="background: rgba(18,12,29,0.9); padding: 22px 20px; display: flex; flex-direction: column; gap: 4px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: #fff">All sports</span>
+        <span style="font-size: 13px; font-weight: 600; color: #d9c2ff">Incl. 3pm kickoffs</span>
+      </div>
+      <div style="background: rgba(18,12,29,0.9); padding: 22px 20px; display: flex; flex-direction: column; gap: 4px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: #fff">2 weeks</span>
+        <span style="font-size: 13px; font-weight: 600; color: #d9c2ff">Catch-up</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 56px 20px 0; display: flex; flex-direction: column; gap: 20px">
+    <h2 style="font-family: Archivo, Arial, sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 0; line-height: 1.15">One line. Everything on it.</h2>
+    <div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 14px">
+      <div style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(139,47,232,0.3); background: rgba(37,10,62,0.5); display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d9c2ff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v6a6 6 0 0 1-12 0V4Z"></path><path d="M6 6H3v2a3 3 0 0 0 3 3M18 6h3v2a3 3 0 0 1-3 3M9 20h6M12 16v4"></path></svg>
+      </div>
+      <h3 class="ctitle">All sport, including 3pm kickoffs</h3>
+      <p class="cbody">Full sports coverage across the leagues, with the 3pm Saturday kickoffs that domestic broadcasters do not carry.</p>
+    </div>
+    <div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 14px">
+      <div style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(139,47,232,0.3); background: rgba(37,10,62,0.5); display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d9c2ff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 19 2 12l9-7v14ZM22 19l-9-7 9-7v14Z"></path></svg>
+      </div>
+      <h3 class="ctitle">2 week catch-up</h3>
+      <p class="cbody">Missed it? Scroll back up to fourteen days on catch-up enabled channels and watch it whenever you like.</p>
+    </div>
+  </div>
+
+  <div style="padding: 56px 20px 64px">
+    <div class="card" style="padding: 26px; display: flex; flex-direction: column; gap: 22px; position: relative; border-color: rgba(139,47,232,0.6); background: linear-gradient(to bottom, rgba(37,10,62,0.6), #120c1d); box-shadow: 0 30px 80px -40px rgba(139,47,232,0.9)">
+      <span style="position: absolute; top: -12px; right: 22px; background: #fb6415; color: #fff; border-radius: 999px; padding: 5px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase">Most popular</span>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h3 class="ctitle">6 Months</h3>
+        <p class="cbody">Half a year, one setup, no renewals to remember.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -0.02em; color: #fff">[YOUR PRICE]</span>
+        <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #b0a5c0">per half year · 1 connection</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 20,000 live TV channels</span>
+        <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 30,000+ VOD &amp; TV series</span>
+        <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; All sports, 3pm kickoffs &amp; PPV</span>
+        <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 2 week catch-up</span>
+        <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; MAG portal set up for you</span>
+      </div>
+      <span class="btn" style="background: {{accent}}; color: #fff">Start now</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#8b2fe8","options":["#8b2fe8","#2f6fe8","#e8622f","#12a37a"]},"$preview":{"width":390,"height":2300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? "#8b2fe8" }
+  }
+}
+</script>
+</body>
+</html>

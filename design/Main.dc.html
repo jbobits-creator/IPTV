@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;1,700;1,800&family=Manrope:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #07040b; color: #f4f2f8;
+           font-family: Manrope, "Helvetica Neue", Arial, sans-serif; }
+    a { color: #bd93fb; text-decoration: none; }
+    a:hover { color: #d9c2ff; }
+    .wrap { width: 1200px; margin: 0 auto; }
+    .h2 { font-family: Archivo, "Arial Black", sans-serif; font-size: 38px;
+          font-weight: 700; letter-spacing: -0.02em; margin: 0; line-height: 1.1; }
+    .lead { font-size: 16px; line-height: 1.6; color: #b0a5c0; margin: 0; }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+               text-transform: uppercase; color: #d9c2ff;
+               border: 1px solid rgba(139,47,232,0.4); background: rgba(37,10,62,0.55);
+               border-radius: 999px; padding: 6px 14px; width: fit-content; }
+    .card { border: 1px solid #2d1e3e; background: #120c1d; border-radius: 16px; }
+    .ctitle { font-family: Archivo, Arial, sans-serif; font-size: 18px;
+              font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+    .cbody { font-size: 14px; line-height: 1.65; color: #b0a5c0; margin: 0; }
+    .btn { border-radius: 999px; font-size: 15px; font-weight: 600;
+           padding: 14px 28px; display: inline-flex; align-items: center;
+           gap: 8px; border: 1px solid transparent; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #07040b; overflow: hidden">
+
+  <!-- ─────────── header ─────────── -->
+  <div style="height: 72px; border-bottom: 1px solid rgba(45,30,62,0.7); display: flex; align-items: center">
+    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px">
+      <div style="display: flex; align-items: center; gap: 10px">
+        <div style="width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #a35ff5, #63189f); display: flex; align-items: center; justify-content: center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"></path>
+          </svg>
+        </div>
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">[YOUR BRAND]</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 500; color: #b0a5c0">
+        <span>What you get</span>
+        <span>How it works</span>
+        <span>Devices</span>
+        <span>Plans</span>
+        <span>FAQ</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px">
+        <span style="font-size: 14px; font-weight: 600; color: #b0a5c0; padding: 9px 16px">Free trial</span>
+        <span class="btn" style="background: {{accent}}; color: #fff; font-size: 14px; padding: 10px 20px">Get started</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────── hero ─────────── -->
+  <div style="position: relative; height: 1180px; overflow: hidden">
+    <div style="position: absolute; left: 0; right: 0; top: -180px; height: 900px; background: radial-gradient(60% 60% at 50% 0%, rgba(139,47,232,0.35), transparent 70%), radial-gradient(40% 40% at 80% 20%, rgba(163,95,245,0.18), transparent 70%)"></div>
+
+    <!-- dotted globe -->
+    <div style="position: absolute; left: 340px; top: 470px; width: 760px; height: 760px">
+      <svg viewBox="0 0 800 800" width="760" height="760">
+        <defs>
+          <radialGradient id="sphere" cx="42%" cy="34%" r="72%">
+            <stop offset="0%" stop-color="#2a1a44"></stop>
+            <stop offset="70%" stop-color="#140b22"></stop>
+            <stop offset="100%" stop-color="#0a0613"></stop>
+          </radialGradient>
+          <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+            <stop offset="76%" stop-color="rgba(0,0,0,0)"></stop>
+            <stop offset="92%" stop-color="{{accent}}" stop-opacity="0.55"></stop>
+            <stop offset="100%" stop-color="rgba(0,0,0,0)"></stop>
+          </radialGradient>
+          <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="7"></feGaussianBlur>
+          </filter>
+          <filter id="dot" x="-140%" y="-140%" width="380%" height="380%">
+            <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+          </filter>
+        </defs>
+        <circle cx="400" cy="400" r="330" fill="url(#halo)"></circle>
+        <circle cx="400" cy="400" r="300" fill="url(#sphere)"></circle>
+        <circle cx="400" cy="400" r="300" fill="none" stroke="{{accent}}" stroke-width="4" opacity="0.75" filter="url(#soft)"></circle>
+        <g fill="none" stroke="#c9a9fd" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.6">
+          <ellipse cx="400" cy="670.5" rx="77.6" ry="27.8"></ellipse>
+          <ellipse cx="400" cy="642.6" rx="150.0" ry="53.8"></ellipse>
+          <ellipse cx="400" cy="598.0" rx="212.1" ry="76.0"></ellipse>
+          <ellipse cx="400" cy="540.0" rx="259.8" ry="93.1"></ellipse>
+          <ellipse cx="400" cy="472.5" rx="289.8" ry="103.8"></ellipse>
+          <ellipse cx="400" cy="400.0" rx="300.0" ry="107.5"></ellipse>
+          <ellipse cx="400" cy="327.5" rx="289.8" ry="103.8"></ellipse>
+          <ellipse cx="400" cy="260.0" rx="259.8" ry="93.1"></ellipse>
+          <ellipse cx="400" cy="202.0" rx="212.1" ry="76.0"></ellipse>
+          <ellipse cx="400" cy="157.4" rx="150.0" ry="53.8"></ellipse>
+          <ellipse cx="400" cy="129.5" rx="77.6" ry="27.8"></ellipse>
+        </g>
+        <g fill="none" stroke="#c9a9fd" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.5 8.5" opacity="0.42" transform="rotate(21 400 400)">
+          <ellipse cx="400" cy="400" rx="77.6" ry="300"></ellipse>
+          <ellipse cx="400" cy="400" rx="150.0" ry="300"></ellipse>
+          <ellipse cx="400" cy="400" rx="212.1" ry="300"></ellipse>
+          <ellipse cx="400" cy="400" rx="259.8" ry="300"></ellipse>
+          <ellipse cx="400" cy="400" rx="289.8" ry="300"></ellipse>
+          <ellipse cx="400" cy="400" rx="300.0" ry="300"></ellipse>
+        </g>
+        <g>
+          <circle cx="437" cy="243" r="14" fill="#fb6415" opacity="0.5" filter="url(#dot)"></circle>
+          <circle cx="437" cy="243" r="5" fill="#fb6415"></circle>
+          <circle cx="296" cy="300" r="12" fill="#fb6415" opacity="0.45" filter="url(#dot)"></circle>
+          <circle cx="296" cy="300" r="4.5" fill="#fb6415"></circle>
+          <circle cx="528" cy="336" r="11" fill="#fb6415" opacity="0.4" filter="url(#dot)"></circle>
+          <circle cx="528" cy="336" r="4" fill="#fb6415"></circle>
+          <circle cx="612" cy="497" r="11" fill="#fb6415" opacity="0.4" filter="url(#dot)"></circle>
+          <circle cx="612" cy="497" r="4" fill="#fb6415"></circle>
+          <circle cx="336" cy="486" r="11" fill="#fb6415" opacity="0.4" filter="url(#dot)"></circle>
+          <circle cx="336" cy="486" r="4" fill="#fb6415"></circle>
+        </g>
+      </svg>
+      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, #07040b 2%, rgba(7,4,11,0) 26%)"></div>
+    </div>
+
+    <!-- hero copy -->
+    <div class="wrap" style="position: relative; padding-top: 118px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
+      <div class="eyebrow" style="display: flex; align-items: center; gap: 9px; letter-spacing: 0.18em">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #fb6415"></span>
+        MAG box ready · delivered worldwide
+      </div>
+      <h1 style="font-family: Archivo, 'Arial Black', sans-serif; font-size: 62px; font-style: italic; font-weight: 800; line-height: 1.04; letter-spacing: -0.03em; margin: 0; max-width: 860px; text-wrap: balance">
+        IPTV for your MAG box, <span style="color: #cbb0fb">anywhere the internet reaches</span>
+      </h1>
+      <p class="lead" style="font-size: 18px; max-width: 680px; text-wrap: pretty">
+        20,000 live TV channels. Over 30,000 films and TV series on demand. All the sport, including the 3pm kickoffs and PPV. And two full weeks of catch-up on every enabled channel.
+      </p>
+      <div style="display: flex; gap: 12px; margin-top: 4px">
+        <span class="btn" style="background: {{accent}}; color: #fff">Start your free trial →</span>
+        <span class="btn" style="background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8">▷ See the channel line-up</span>
+      </div>
+    </div>
+
+    <!-- numbers -->
+    <div class="wrap" style="position: relative; margin-top: 452px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: #2d1e3e; border: 1px solid #2d1e3e; border-radius: 18px; overflow: hidden">
+      <div style="background: rgba(18,12,29,0.86); padding: 28px 26px; display: flex; flex-direction: column; gap: 5px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: #fff">20,000</span>
+        <span style="font-size: 14px; font-weight: 600; color: #d9c2ff">Live TV channels</span>
+        <span style="font-size: 12px; color: #b0a5c0">Worldwide line-up</span>
+      </div>
+      <div style="background: rgba(18,12,29,0.86); padding: 28px 26px; display: flex; flex-direction: column; gap: 5px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: #fff">30,000+</span>
+        <span style="font-size: 14px; font-weight: 600; color: #d9c2ff">VOD &amp; TV series</span>
+        <span style="font-size: 12px; color: #b0a5c0">Films and box sets</span>
+      </div>
+      <div style="background: rgba(18,12,29,0.86); padding: 28px 26px; display: flex; flex-direction: column; gap: 5px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: #fff">All sports</span>
+        <span style="font-size: 14px; font-weight: 600; color: #d9c2ff">Incl. 3pm kickoffs</span>
+        <span style="font-size: 12px; color: #b0a5c0">Plus PPV events</span>
+      </div>
+      <div style="background: rgba(18,12,29,0.86); padding: 28px 26px; display: flex; flex-direction: column; gap: 5px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: #fff">2 weeks</span>
+        <span style="font-size: 14px; font-weight: 600; color: #d9c2ff">Catch-up</span>
+        <span style="font-size: 12px; color: #b0a5c0">Rewind any channel</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────── what you get ─────────── -->
+  <div class="wrap" style="padding: 96px 0">
+    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 640px">
+      <div class="eyebrow">What you get</div>
+      <h2 class="h2">One line. Everything on it.</h2>
+      <p class="lead">No add-on packages, no sports tier, no separate charge on fight night. Every plan carries the full grid.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 48px">
+      <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 16px">
+        <div style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(139,47,232,0.3); background: rgba(37,10,62,0.5); display: flex; align-items: center; justify-content: center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d9c2ff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="2"></rect><path d="m17 2-5 5-5-5"></path></svg>
+        </div>
+        <h3 class="ctitle">20,000 live channels</h3>
+        <p class="cbody">Entertainment, news, kids, documentaries and sport from every region — one line, one portal, the full grid.</p>
+      </div>
+      <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 16px">
+        <div style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(139,47,232,0.3); background: rgba(37,10,62,0.5); display: flex; align-items: center; justify-content: center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d9c2ff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"></rect><path d="M7 3v18M17 3v18M2 9h5M2 15h5M17 9h5M17 15h5"></path></svg>
+        </div>
+        <h3 class="ctitle">Over 30,000 VOD &amp; series</h3>
+        <p class="cbody">Films and complete TV series on demand, added to continuously, browsable straight from the MAG portal.</p>
+      </div>
+      <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 16px">
+        <div style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(139,47,232,0.3); background: rgba(37,10,62,0.5); display: flex; align-items: center; justify-content: center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d9c2ff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v6a6 6 0 0 1-12 0V4Z"></path><path d="M6 6H3v2a3 3 0 0 0 3 3M18 6h3v2a3 3 0 0 1-3 3M9 20h6M12 16v4"></path></svg>
+        </div>
+        <h3 class="ctitle">All sport, including 3pm kickoffs</h3>
+        <p class="cbody">Full sports coverage across the leagues, with the 3pm Saturday kickoffs that domestic broadcasters do not carry.</p>
+      </div>
+      <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 16px">
+        <div style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(139,47,232,0.3); background: rgba(37,10,62,0.5); display: flex; align-items: center; justify-content: center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d9c2ff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8Z"></path><path d="M13 6v3M13 15v3"></path></svg>
+        </div>
+        <h3 class="ctitle">PPV events included</h3>
+        <p class="cbody">Boxing, MMA and the big one-off pay-per-view cards are part of the line — no extra charge on the night.</p>
+      </div>
+      <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 16px">
+        <div style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(139,47,232,0.3); background: rgba(37,10,62,0.5); display: flex; align-items: center; justify-content: center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d9c2ff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 19 2 12l9-7v14ZM22 19l-9-7 9-7v14Z"></path></svg>
+        </div>
+        <h3 class="ctitle">2 week catch-up</h3>
+        <p class="cbody">Missed it? Scroll back up to fourteen days on catch-up enabled channels and watch it whenever you like.</p>
+      </div>
+      <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 16px">
+        <div style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(139,47,232,0.3); background: rgba(37,10,62,0.5); display: flex; align-items: center; justify-content: center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d9c2ff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"></path></svg>
+        </div>
+        <h3 class="ctitle">Anywhere with internet</h3>
+        <p class="cbody">Your MAG box works wherever it is plugged in — at home, abroad or in a second property. If it reaches the internet, it reaches us.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────── how it works ─────────── -->
+  <div style="position: relative; padding: 96px 0; overflow: hidden">
+    <div style="position: absolute; left: 0; right: 0; top: 0; height: 380px; background: radial-gradient(60% 60% at 50% 0%, rgba(139,47,232,0.22), transparent 70%)"></div>
+    <div class="wrap" style="position: relative">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+        <h2 class="h2">On your TV in four steps</h2>
+        <p class="lead" style="max-width: 560px">Most customers are watching within minutes of paying. All you need is the MAC address printed on the back of the box.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin-top: 56px">
+        <div class="card" style="padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; position: relative">
+          <div style="position: absolute; top: -12px; left: 24px; width: 24px; height: 24px; border-radius: 999px; background: {{accent}}; color: #fff; font-family: Archivo, Arial, sans-serif; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</div>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #bd93fb; margin-top: 4px">Step 1</span>
+          <h3 class="ctitle" style="font-size: 16px">Choose your package</h3>
+          <p class="cbody">Pick 1, 3, 6 or 12 months and how many connections you need for the household.</p>
+        </div>
+        <div class="card" style="padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; position: relative">
+          <div style="position: absolute; top: -12px; left: 24px; width: 24px; height: 24px; border-radius: 999px; background: {{accent}}; color: #fff; font-family: Archivo, Arial, sans-serif; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</div>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #bd93fb; margin-top: 4px">Step 2</span>
+          <h3 class="ctitle" style="font-size: 16px">Send us your MAC</h3>
+          <p class="cbody">Give us the MAC address from your MAG box — Settings, then System Settings, then About.</p>
+        </div>
+        <div class="card" style="padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; position: relative">
+          <div style="position: absolute; top: -12px; left: 24px; width: 24px; height: 24px; border-radius: 999px; background: {{accent}}; color: #fff; font-family: Archivo, Arial, sans-serif; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</div>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #bd93fb; margin-top: 4px">Step 3</span>
+          <h3 class="ctitle" style="font-size: 16px">We load your portal</h3>
+          <p class="cbody">Your line is registered against that MAC and the portal URL is emailed to you, usually within minutes.</p>
+        </div>
+        <div class="card" style="padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; position: relative">
+          <div style="position: absolute; top: -12px; left: 24px; width: 24px; height: 24px; border-radius: 999px; background: {{accent}}; color: #fff; font-family: Archivo, Arial, sans-serif; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">4</div>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #bd93fb; margin-top: 4px">Step 4</span>
+          <h3 class="ctitle" style="font-size: 16px">Enter it and watch</h3>
+          <p class="cbody">Settings, Servers, Portals — paste the URL, reboot the box, and the full grid loads on your TV.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────── devices ─────────── -->
+  <div style="border-top: 1px solid #2d1e3e; border-bottom: 1px solid #2d1e3e; background: rgba(18,12,29,0.4); padding: 64px 0">
+    <div class="wrap" style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
+      <h2 class="h2" style="font-size: 30px">Built for MAG — works on the rest too</h2>
+      <p class="lead" style="font-size: 14px; max-width: 520px">Set up on your MAG box by us, and usable on everything else you already own with the same line.</p>
+    </div>
+    <div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px">
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 250</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 254</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 256</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 322</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 324</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 349</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 420 4K</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">MAG 524 4K</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Formuler Z</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Android TV</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Amazon Firestick</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Smart TV apps</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">Enigma2</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">iOS &amp; Android</span>
+      <span style="border: 1px solid #2d1e3e; background: #07040b; border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: #b0a5c0">VLC / Kodi</span>
+    </div>
+  </div>
+
+  <!-- ─────────── plans ─────────── -->
+  <div style="position: relative; padding: 96px 0; overflow: hidden">
+    <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 560px; background: radial-gradient(55% 60% at 50% 100%, rgba(139,47,232,0.3), transparent 72%)"></div>
+    <div class="wrap" style="position: relative">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+        <div class="eyebrow">Plans</div>
+        <h2 class="h2">Pick a length. The line never changes.</h2>
+        <p class="lead" style="max-width: 580px">Every plan carries all 20,000 channels, the full VOD library, the sport and the catch-up. Longer plans simply cost less per month.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin-top: 48px">
+        <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 24px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <h3 class="ctitle">1 Month</h3>
+            <p class="cbody">Try the full line with nothing locked in.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-family: Archivo, Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: #fff">[YOUR PRICE]</span>
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #b0a5c0">per month · 1 connection</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 20,000 live TV channels</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 30,000+ VOD &amp; TV series</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; All sports, 3pm kickoffs &amp; PPV</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 2 week catch-up</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; HD, FHD &amp; 4K where broadcast</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; MAG portal set up for you</span>
+          </div>
+          <span class="btn" style="justify-content: center; background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8; font-size: 14px">Start now</span>
+        </div>
+
+        <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 24px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <h3 class="ctitle">3 Months</h3>
+            <p class="cbody">A season of sport on one payment.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-family: Archivo, Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: #fff">[YOUR PRICE]</span>
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #b0a5c0">per quarter · 1 connection</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 20,000 live TV channels</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 30,000+ VOD &amp; TV series</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; All sports, 3pm kickoffs &amp; PPV</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 2 week catch-up</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; HD, FHD &amp; 4K where broadcast</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; MAG portal set up for you</span>
+          </div>
+          <span class="btn" style="justify-content: center; background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8; font-size: 14px">Start now</span>
+        </div>
+
+        <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 24px; position: relative; border-color: rgba(139,47,232,0.6); background: linear-gradient(to bottom, rgba(37,10,62,0.6), #120c1d); box-shadow: 0 30px 80px -40px rgba(139,47,232,0.9)">
+          <span style="position: absolute; top: -12px; right: 24px; background: #fb6415; color: #fff; border-radius: 999px; padding: 5px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Most popular</span>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <h3 class="ctitle">6 Months</h3>
+            <p class="cbody">Half a year, one setup, no renewals to remember.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-family: Archivo, Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: #fff">[YOUR PRICE]</span>
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #b0a5c0">per half year · 1 connection</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 20,000 live TV channels</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 30,000+ VOD &amp; TV series</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; All sports, 3pm kickoffs &amp; PPV</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 2 week catch-up</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; HD, FHD &amp; 4K where broadcast</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; MAG portal set up for you</span>
+          </div>
+          <span class="btn" style="justify-content: center; background: {{accent}}; color: #fff; font-size: 14px">Start now</span>
+        </div>
+
+        <div class="card" style="padding: 28px; display: flex; flex-direction: column; gap: 24px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <h3 class="ctitle">12 Months</h3>
+            <p class="cbody">Best value per month for a permanent setup.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-family: Archivo, Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: #fff">[YOUR PRICE]</span>
+            <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #b0a5c0">per year · 1 connection</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 20,000 live TV channels</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 30,000+ VOD &amp; TV series</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; All sports, 3pm kickoffs &amp; PPV</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; 2 week catch-up</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; HD, FHD &amp; 4K where broadcast</span>
+            <span style="font-size: 14px; color: #b0a5c0">✓&nbsp; MAG portal set up for you</span>
+          </div>
+          <span class="btn" style="justify-content: center; background: rgba(255,255,255,0.05); border-color: rgba(139,47,232,0.4); color: #f4f2f8; font-size: 14px">Start now</span>
+        </div>
+      </div>
+
+      <p class="lead" style="text-align: center; font-size: 14px; margin-top: 24px">Need two, three or four connections for the household? Ask us and we will price it for you.</p>
+    </div>
+  </div>
+
+  <!-- ─────────── faq ─────────── -->
+  <div class="wrap" style="padding: 96px 0">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+      <h2 class="h2">Questions we get asked</h2>
+      <p class="lead" style="max-width: 520px">Anything else, message us — we answer before you have paid a penny.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 48px; width: 760px; margin-left: auto; margin-right: auto">
+      <div class="card" style="padding: 22px 26px; display: flex; flex-direction: column; gap: 16px; border-color: rgba(139,47,232,0.5)">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px">
+          <span class="ctitle" style="font-size: 16px">Which MAG boxes does this work on?</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bd93fb" stroke-width="2.2" stroke-linecap="round" style="transform: rotate(45deg)"><path d="M12 5v14M5 12h14"></path></svg>
+        </div>
+        <p class="cbody">Every current MAG portal box — 250, 254, 256, 322, 324, 349, 420 and 524 among them. We register your line against the box's MAC address and send a portal URL you paste into Settings, Servers, Portals.</p>
+      </div>
+      <div class="card" style="padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+        <span class="ctitle" style="font-size: 16px">Will it work in my country?</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bd93fb" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+      </div>
+      <div class="card" style="padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+        <span class="ctitle" style="font-size: 16px">What exactly does 2 week catch-up cover?</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bd93fb" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+      </div>
+      <div class="card" style="padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+        <span class="ctitle" style="font-size: 16px">Are the 3pm kickoffs and PPV cards really included?</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bd93fb" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+      </div>
+      <div class="card" style="padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+        <span class="ctitle" style="font-size: 16px">Can I watch on more than one device at a time?</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bd93fb" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+      </div>
+      <div class="card" style="padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+        <span class="ctitle" style="font-size: 16px">Do you offer a trial?</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bd93fb" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────── reseller ─────────── -->
+  <div style="position: relative; border-top: 1px solid #2d1e3e; overflow: hidden">
+    <div style="position: absolute; left: 0; right: 0; bottom: -240px; height: 700px; background: radial-gradient(50% 55% at 50% 100%, rgba(139,47,232,0.45), transparent 70%)"></div>
+    <div class="wrap" style="position: relative; padding: 96px 0; display: flex; flex-direction: column; align-items: center; gap: 26px; text-align: center">
+      <h2 class="h2" style="font-size: 48px; font-style: italic; font-weight: 800; max-width: 780px; text-wrap: balance">Sell it on. Join the reseller programme.</h2>
+      <p class="lead" style="max-width: 560px">Credits at wholesale rates, your own panel to create and renew lines, and the same 24/7 support behind you. Tell us the volume you expect and we will set your rate.</p>
+      <span class="btn" style="background: {{accent}}; color: #fff">Become a reseller →</span>
+    </div>
+  </div>
+
+  <!-- ─────────── footer ─────────── -->
+  <div style="border-top: 1px solid #2d1e3e; background: rgba(18,12,29,0.4)">
+    <div class="wrap" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; padding: 64px 0">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-family: Archivo, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -0.02em">[YOUR BRAND]</span>
+        <p class="cbody" style="max-width: 280px">IPTV supplied to MAG boxes anywhere on the globe that has internet.</p>
+        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px">
+          <span style="color: #b0a5c0">Email &nbsp;<span style="color: #d9c2ff">[YOUR EMAIL]</span></span>
+          <span style="color: #b0a5c0">WhatsApp &nbsp;<span style="color: #d9c2ff">[YOUR WHATSAPP NUMBER]</span></span>
+          <span style="color: #b0a5c0">Telegram &nbsp;<span style="color: #d9c2ff">[YOUR TELEGRAM]</span></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #d9c2ff">Service</span>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #b0a5c0">
+          <span>What you get</span><span>How it works</span><span>Devices</span><span>Plans</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #d9c2ff">Support</span>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #b0a5c0">
+          <span>Setup guide</span><span>FAQ</span><span>Contact us</span><span>Reseller programme</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #d9c2ff">Legal</span>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #b0a5c0">
+          <span>Terms of service</span><span>Refund policy</span><span>Privacy policy</span>
+        </div>
+      </div>
+    </div>
+    <div style="border-top: 1px solid #2d1e3e">
+      <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; padding: 22px 0; font-size: 12px; color: #b0a5c0">
+        <span>© 2026 [YOUR BRAND]. All rights reserved.</span>
+        <span>Subscriptions cover the service only. No hardware included.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#8b2fe8","options":["#8b2fe8","#2f6fe8","#e8622f","#12a37a"]},"$preview":{"width":1440,"height":5800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? "#8b2fe8" }
+  }
+}
+</script>
+</body>
+</html>
