@@ -64,7 +64,16 @@ lib/
   offer.ts          all page copy in one place
   utils.ts          cn()
 components.json     shadcn config (aliases, Tailwind paths)
+design/             design canvas source (see below)
 ```
+
+## Design canvas
+
+`design/` holds the source for the visual design canvas — `Main.dc.html`
+(desktop), `Mobile.dc.html` (phone), `Kit.dc.html` (the token sheet) and
+`canvas.json` for their layout. They mirror the tokens in `tailwind.config.ts`
+and `app/globals.css`, so the two stay in step: change a colour or a size in
+one and give it the same value in the other.
 
 ## The Globe component
 
